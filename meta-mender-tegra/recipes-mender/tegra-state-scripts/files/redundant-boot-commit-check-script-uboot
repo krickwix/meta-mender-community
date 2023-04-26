@@ -27,12 +27,12 @@ if [ "${devnam##/dev/mmcblk}" != "${devnam}" ]; then
 	echo "ERR: could not extract partition number from rootfs device name" >&2
 	exit 1
     fi
-    if [ $bootpart -ne $devnampart ]; then
-	altslot=$(expr 1 - $curslot)
-	echo "Detected Tegra bootloader upgrade failure, resetting boot slot to $altslot" >&2
-	echo "*** Reboot required ***" >&2
-	tegra-boot-control --set-active $altslot
-	exit 1
-    fi
+    # if [ $bootpart -ne $devnampart ]; then
+	# altslot=$(expr 1 - $curslot)
+	# echo "Detected Tegra bootloader upgrade failure, resetting boot slot to $altslot" >&2
+	# echo "*** Reboot required ***" >&2
+	# tegra-boot-control --set-active $altslot
+	# exit 1
+    # fi
 fi
 exit 0
